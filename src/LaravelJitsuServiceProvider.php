@@ -2,9 +2,9 @@
 
 namespace Mpanius\LaravelJitsu;
 
+use Mpanius\LaravelJitsu\Commands\LaravelJitsuCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Mpanius\LaravelJitsu\Commands\LaravelJitsuCommand;
 
 class LaravelJitsuServiceProvider extends PackageServiceProvider
 {
