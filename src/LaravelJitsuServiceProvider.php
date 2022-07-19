@@ -21,5 +21,12 @@ class LaravelJitsuServiceProvider extends PackageServiceProvider
             ->hasConfigFile();
     }
 
+    public function bootingPackage()
+    {
+        app()->singleton(LaravelJitsu::class, function () {
+            return new LaravelJitsu();
+        });
+    }
+
 
 }
