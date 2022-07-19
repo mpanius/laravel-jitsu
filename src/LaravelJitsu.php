@@ -12,6 +12,8 @@ class LaravelJitsu
 
     protected bool $jitsu_secure;
 
+    protected ?string $queue_name;
+
     public $last_response;
 
     public function __construct()
@@ -19,6 +21,7 @@ class LaravelJitsu
         $this->api_keys = config('jitsu.keys');
         $this->jitsu_url = config('jitsu.url');
         $this->jitsu_secure = config('jitsu.secure');
+        $this->queue_name = config('jitsu.queue');
     }
 
     public function push(array $data = [], string $event_name = 'event', string $api_key_name = 'default')
@@ -27,9 +30,13 @@ class LaravelJitsu
 
         $url = ($this->jitsu_secure ? 'https://' : 'http://').$this->jitsu_url.'?token='.$this->api_keys[$api_key_name]['server'];
 
-        dispatch(static function () use ($url, $data) {
-            Http::withBody(json_encode($data), 'application/json')->post($url);
-        });
+        if (!is_null($this->queue_name)) {
+            dispatch(function () use ($data, $url) {
+                Http::withBody(json_encode($data), 'application/json')->post($url);
+            })->onQueue($this->queue_name);
+            return 'dispatch ok';
+        }
+        return Http::withBody(json_encode($data), 'application/json')->post($url);
 
 
     }
