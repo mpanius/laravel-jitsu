@@ -35,8 +35,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Mpanius\\LaravelJitsu\\": "src",
-            "Mpanius\\LaravelJitsu\\Database\\Factories\\": "database/factories"
+            "Mpanius\\LaravelJitsu\\": "src"
         }
     },
     "autoload-dev": {

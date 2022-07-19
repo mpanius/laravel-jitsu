@@ -2,12 +2,13 @@
 
 namespace Mpanius\LaravelJitsu;
 
-use Mpanius\LaravelJitsu\Commands\LaravelJitsuCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class LaravelJitsuServiceProvider extends PackageServiceProvider
 {
+
+
     public function configurePackage(Package $package): void
     {
         /*
@@ -17,9 +18,8 @@ class LaravelJitsuServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('laravel-jitsu')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_laravel-jitsu_table')
-            ->hasCommand(LaravelJitsuCommand::class);
+            ->hasConfigFile();
     }
+
+
 }
