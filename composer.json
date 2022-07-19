@@ -35,8 +35,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Mpanius\\LaravelJitsu\\": "src"
-        }
+            "Mpanius\\LaravelJitsu\\": "./src"
+        },
+        "files": [
+            "./src/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
