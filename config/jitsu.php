@@ -15,7 +15,6 @@ return [
     /**
      * Queue to use - if 'null' then will run synchronously
      */
-
     'queue' => env('JITSU_QUEUE', null),
     /**
      * Server and JS API keys from your Jitsu installation
