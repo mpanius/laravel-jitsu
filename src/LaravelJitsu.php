@@ -25,12 +25,12 @@ class LaravelJitsu
     {
         $data['event_name'] = $event_name;
 
-        $url = ($this->jitsu_secure ? 'https://' : 'http://').$this->jitsu_url.'?token='.$this->api_keys['$api_key_name']['server'];
+        $url = ($this->jitsu_secure ? 'https://' : 'http://').$this->jitsu_url.'?token='.$this->api_keys[$api_key_name]['server'];
 
-        Http::async()->post($url, $data)->then(function ($response) {
-            $this->last_response = $response;
+        dispatch(static function () use ($url, $data) {
+            Http::withBody(json_encode($data), 'application/json')->post($url);
         });
 
-        return true;
+
     }
 }
