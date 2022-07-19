@@ -28,7 +28,7 @@ class LaravelJitsu
     {
         $data['event_name'] = $event_name;
 
-        $json_data = json_encode($data);
+        $json_data = json_encode($data, JSON_UNESCAPED_UNICODE);
 
         $url = ($this->jitsu_secure ? 'https://' : 'http://').$this->jitsu_url.'?token='.$this->api_keys[$api_key_name]['server'];
 
