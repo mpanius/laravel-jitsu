@@ -13,6 +13,4 @@ class LaravelJitsu extends Facade
     {
         return 'laravel-jitsu';
     }
-
-
 }
