@@ -28,16 +28,19 @@ class LaravelJitsu
     {
         $data['event_name'] = $event_name;
 
+        $json_data = json_encode($data);
+
         $url = ($this->jitsu_secure ? 'https://' : 'http://').$this->jitsu_url.'?token='.$this->api_keys[$api_key_name]['server'];
 
-        if (! is_null($this->queue_name)) {
-            dispatch(function () use ($data, $url) {
-                Http::withBody(json_encode($data), 'application/json')->post($url);
+        if (!is_null($this->queue_name)) {
+
+            dispatch(function () use ($json_data, $url) {
+                Http::withBody($json_data, 'application/json')->post($url);
             })->onQueue($this->queue_name);
 
             return 'dispatch ok';
         }
 
-        return Http::withBody(json_encode($data), 'application/json')->post($url);
+        return Http::withBody($json_data, 'application/json')->post($url);
     }
 }
