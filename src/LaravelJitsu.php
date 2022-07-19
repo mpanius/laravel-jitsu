@@ -30,7 +30,5 @@ class LaravelJitsu
         dispatch(static function () use ($url, $data) {
             Http::withBody(json_encode($data), 'application/json')->post($url);
         });
-
-
     }
 }
