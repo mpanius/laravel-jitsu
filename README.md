@@ -8,7 +8,7 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/mpanius/laravel-jitsu/Check%20&%20fix%20styling?label=code%20style)](https://github.com/mpanius/laravel-jitsu/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/mpanius/laravel-jitsu.svg?style=flat-square)](https://packagist.org/packages/mpanius/laravel-jitsu)
 
-This is where your description should go. Limit it to a paragraph or two. Consider adding a small example.
+Simple package for server-side data sending to Jitsu (jitsu.com) ETL system
 
 ## Support us
 
