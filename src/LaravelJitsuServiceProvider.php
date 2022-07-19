@@ -7,8 +7,6 @@ use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class LaravelJitsuServiceProvider extends PackageServiceProvider
 {
-
-
     public function configurePackage(Package $package): void
     {
         /*
@@ -20,6 +18,4 @@ class LaravelJitsuServiceProvider extends PackageServiceProvider
             ->name('laravel-jitsu')
             ->hasConfigFile();
     }
-
-
 }
