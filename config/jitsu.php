@@ -2,6 +2,7 @@
 
 // config for Mpanius/LaravelJitsu
 return [
+    'disabled' => env('JITSU_DISABLED',false),
     /**
      * Url of your Jitsu endpoint (without scheme)
      */
