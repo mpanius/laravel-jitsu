@@ -22,7 +22,7 @@ class LaravelJitsuServiceProvider extends PackageServiceProvider
     public function bootingPackage()
     {
         app()->singleton(LaravelJitsu::class, function () {
-            return new LaravelJitsu();
+            return new LaravelJitsu;
         });
     }
 }
